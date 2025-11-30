@@ -102,6 +102,9 @@ Hosted base (example): `https://minimartcirclebackend.onrender.com/api`
 - Backend returns public URL inserted into product via `/api/products`.
 
 ## Frontend Setup
+### Hosted Frontend
+Live site: https://minimartcircle.vercel.app/
+
 ### 1. Environment Variables (`frontend/.env`)
 ```
 VITE_SUPABASE_URL=https://YOUR-PROJECT-REF.supabase.co
@@ -125,6 +128,8 @@ VITE_API_URL=https://minimartcirclebackend.onrender.com/api
 ```
 2. Restart frontend dev server.
 3. Axios will call hosted backend directly (proxy disabled).
+
+To use the hosted frontend, simply visit: `https://minimartcircle.vercel.app/`.
 
 ### 3. Development Proxy
 `vite.config.js` proxies `/api` → `http://localhost:5000` so axios uses relative `'/api'` base.

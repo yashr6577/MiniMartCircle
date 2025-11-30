@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-// Use relative base URL so it works in dev (proxied by Vite)
-// and in production behind the same origin
+// Prefer explicit API URL from env, fallback to relative '/api'
+const baseURL = import.meta.env.VITE_API_URL || '/api';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL,
   withCredentials: true,
 });
 

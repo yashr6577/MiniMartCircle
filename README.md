@@ -84,7 +84,10 @@ CREATE TABLE IF NOT EXISTS products (
 );
 ```
 
-### 4. API Endpoints (Base: `http://localhost:5000/api`)
+### 4. API Endpoints
+Default local base: `http://localhost:5000/api`
+
+Hosted base (example): `https://minimartcirclebackend.onrender.com/api`
 - `POST /auth/signup` → body: `{ name, phone, email, password }`
 - `POST /auth/login` → body: `{ email, password }`
 - `POST /auth/logout`
@@ -107,13 +110,21 @@ VITE_SUPABASE_BUCKET=marketplace-images      # same bucket
 ```
 Currently image uploads are server-side; these variables are only needed if you plan to enable client-side interactions later.
 
-### 2. Install & Run
+### 2. Install & Run (Local Development)
 ```powershell
 Set-Location frontend
 npm install
 npm run dev
 ```
 Visit: `http://localhost:5173`
+
+To use a hosted backend instead of local:
+1. Add to `frontend/.env`:
+```
+VITE_API_URL=https://minimartcirclebackend.onrender.com/api
+```
+2. Restart frontend dev server.
+3. Axios will call hosted backend directly (proxy disabled).
 
 ### 3. Development Proxy
 `vite.config.js` proxies `/api` → `http://localhost:5000` so axios uses relative `'/api'` base.
